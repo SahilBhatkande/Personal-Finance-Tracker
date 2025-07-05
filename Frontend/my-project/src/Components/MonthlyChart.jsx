@@ -11,7 +11,7 @@ const MonthlyChart = ({refresh}) => {
         const fetchData = async () => {
            try {
 
-            const res = await axios.get('http://localhost:5000/api/transactions')
+            const res = await axios.get('https://personal-finance-tracker-3-o03m.onrender.com/api/transactions')
             const transactions = res.data;
 
             const monthlyData = transactions.reduce((acc , t) => {
