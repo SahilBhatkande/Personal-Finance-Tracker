@@ -13,7 +13,7 @@ function Dashboard({ refresh }) {
   useEffect(() => {
     const fetchSummary = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/transactions');
+        const res = await axios.get('https://personal-finance-tracker-3-o03m.onrender.com/api/transactions');
         const transactions = res.data;
 
         const totalExpenses = transactions.reduce((sum, t) => sum + t.amount, 0);
@@ -40,7 +40,7 @@ function Dashboard({ refresh }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="glass p-6 rounded-xl card-hover">
           <h3 className="font-semibold text-lg mb-3 text-white">Total Expenses</h3>
-          <p className="text-3xl font-bold success-gradient text-white">
+          <p className="text-3xl font-bold success-gradient bg-clip-text text-white">
             ${summary.totalExpenses.toFixed(2)}
           </p>
         </div>
