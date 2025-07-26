@@ -10,8 +10,8 @@ function BudgetChart({ refresh }) {
     const fetchData = async () => {
       try {
         const [transactionsRes, budgetsRes] = await Promise.all([
-          axios.get('https://personal-finance-tracker-3-o03m.onrender.com/api/transactions'),
-          axios.get('https://personal-finance-tracker-3-o03m.onrender.com/api/budgets'),
+          axios.get('http://localhost:5000/api/transactions'),
+          axios.get('http://localhost:5000/api/budgets'),
         ]);
 
         const transactions = transactionsRes.data;

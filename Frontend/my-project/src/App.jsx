@@ -6,6 +6,7 @@ import MonthlyChart from './Components/MonthlyChart';
 import CategoryChart from './Components/CategoryChart';
 import BudgetForm from './Components/BudgetForm';
 import BudgetChart from './Components/BudgetChart';
+import DebtList from './Components/DebtList';
 
 function App() {
   const [refresh, setRefresh] = useState(false);
@@ -31,7 +32,10 @@ function App() {
           <BudgetChart refresh={refresh} />
         </div>
         
-        <TransactionList refresh={refresh} onUpdate={() => setRefresh(!refresh)} />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+          <TransactionList refresh={refresh} onUpdate={() => setRefresh(!refresh)} />
+          <DebtList refresh={refresh} onUpdate={() => setRefresh(!refresh)} />
+        </div>
       </div>
     </div>
   );

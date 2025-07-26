@@ -14,7 +14,7 @@ function CategoryChart({ refresh }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('https://personal-finance-tracker-3-o03m.onrender.com/api/transactions');
+        const res = await axios.get('http://localhost:5000/api/transactions');
         const transactions = res.data;
 
         const categoryData = transactions.reduce((acc, t) => {
