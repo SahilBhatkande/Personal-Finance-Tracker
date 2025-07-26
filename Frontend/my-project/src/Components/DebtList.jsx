@@ -208,7 +208,7 @@ const DebtTransactionHistory = ({ debt, onClose, onUpdate }) => {
 
   const fetchTransactions = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/debts/${debt._id}/transactions`);
+      const response = await fetch(`https://personal-finance-tracker-1-cbkb.onrender.com/api/debts/${debt._id}/transactions`);
       const data = await response.json();
       setTransactions(data);
     } catch (error) {
@@ -221,7 +221,7 @@ const DebtTransactionHistory = ({ debt, onClose, onUpdate }) => {
   const handleAddTransaction = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5000/api/debts/${debt._id}/transactions`, {
+      const response = await fetch(`https://personal-finance-tracker-1-cbkb.onrender.com/api/debts/${debt._id}/transactions`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -243,7 +243,7 @@ const DebtTransactionHistory = ({ debt, onClose, onUpdate }) => {
   const handleDeleteTransaction = async (transactionId) => {
     if (window.confirm('Are you sure you want to delete this transaction?')) {
       try {
-        const response = await fetch(`http://localhost:5000/api/debts/${debt._id}/transactions/${transactionId}`, {
+        const response = await fetch(`https://personal-finance-tracker-1-cbkb.onrender.com/api/debts/${debt._id}/transactions/${transactionId}`, {
           method: 'DELETE',
         });
         if (response.ok) {
