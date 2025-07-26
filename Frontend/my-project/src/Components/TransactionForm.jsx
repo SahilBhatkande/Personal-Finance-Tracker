@@ -32,7 +32,7 @@ function TransactionForm({ onSubmit }) {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/api/transactions', formData);
+      const response = await axios.post('https://personal-finance-tracker-1-cbkb.onrender.com/api/transactions', formData);
       console.log('Transaction added successfully:', response.data);
       setFormData({ amount: '', date: '', description: '', category: '' });
       setError('');

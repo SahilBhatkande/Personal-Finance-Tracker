@@ -33,7 +33,7 @@ const BudgetForm = ({ onSubmit }) => {
     }
 
     try {
-      await axios.post('http://localhost:5000/api/budgets', formData);
+      await axios.post('https://personal-finance-tracker-1-cbkb.onrender.com/api/budgets', formData);
       setFormData({ category: '', amount: '', month: '' });
       setError('');
       setSuccess('Budget set successfully!');

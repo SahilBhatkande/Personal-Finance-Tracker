@@ -9,7 +9,7 @@ function TransactionList({ refresh, onUpdate }) {
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/transactions');
+        const res = await axios.get('https://personal-finance-tracker-1-cbkb.onrender.com/api/transactions');
         setTransactions(res.data);
         setError('');
       } catch (err) {
@@ -21,7 +21,7 @@ function TransactionList({ refresh, onUpdate }) {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/transactions/${id}`);
+      await axios.delete(`https://personal-finance-tracker-1-cbkb.onrender.com/api/transactions/${id}`);
       onUpdate();
     } catch (err) {
       setError('Failed to delete transaction');

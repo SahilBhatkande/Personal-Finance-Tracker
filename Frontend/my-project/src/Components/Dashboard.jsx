@@ -14,7 +14,7 @@ function Dashboard({ refresh }) {
   useEffect(() => {
     const fetchSummary = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/transactions');
+        const res = await axios.get('https://personal-finance-tracker-1-cbkb.onrender.com/api/transactions');
         const transactions = res.data;
 
         const totalExpenses = transactions.reduce((sum, t) => sum + t.amount, 0);

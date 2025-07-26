@@ -27,7 +27,7 @@ const BankLink = () => {
     try {
       setLoading(true);
       setError(null);
-      const response = await axios.post('http://localhost:5000/plaid/create-link-token');
+      const response = await axios.post('https://personal-finance-tracker-1-cbkb.onrender.com');
       setLinkToken(response.data.link_token);
     } catch (err) {
       setError('Failed to create link token. Please check your Plaid configuration.');
@@ -48,7 +48,7 @@ const BankLink = () => {
       token: linkToken,
       onSuccess: async (public_token, metadata) => {
         try {
-          const response = await axios.post('http://localhost:5000/plaid/exchange-token', {
+          const response = await axios.post('https://personal-finance-tracker-1-cbkb.onrender.com', {
             public_token: public_token
           });
           
@@ -100,7 +100,7 @@ const BankLink = () => {
         return;
       }
 
-      const response = await axios.get(`http://localhost:5000/plaid/transactions?item_id=${itemId}`);
+      const response = await axios.get(`https://personal-finance-tracker-1-cbkb.onrender.com/plaid/transactions?item_id=${itemId}`);
       console.log('Synced transactions:', response.data);
       setError(null);
       
@@ -118,7 +118,7 @@ const BankLink = () => {
   const unlinkAccount = async () => {
     try {
       const itemId = localStorage.getItem('plaid_item_id');
-      await axios.delete('http://localhost:5000/plaid/unlink', {
+      await axios.delete('https://personal-finance-tracker-1-cbkb.onrender.com/plaid/unlink', {
         data: { item_id: itemId }
       });
       

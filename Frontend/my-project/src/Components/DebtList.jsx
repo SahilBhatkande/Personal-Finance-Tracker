@@ -13,7 +13,7 @@ const DebtList = ({ refresh, onUpdate }) => {
 
   const fetchDebts = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/debts');
+      const response = await fetch('https://personal-finance-tracker-1-cbkb.onrender.com/api/debts');
       const data = await response.json();
       setDebts(data);
     } catch (error) {
@@ -26,7 +26,7 @@ const DebtList = ({ refresh, onUpdate }) => {
   const handleAddDebt = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/debts', {
+      const response = await fetch('https://personal-finance-tracker-1-cbkb.onrender.com/api/debts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newDebt),
@@ -45,7 +45,7 @@ const DebtList = ({ refresh, onUpdate }) => {
   const handleDeleteDebt = async (id) => {
     if (window.confirm('Are you sure you want to delete this debt and all its transactions?')) {
       try {
-        const response = await fetch(`http://localhost:5000/api/debts/${id}`, {
+        const response = await fetch(`https://personal-finance-tracker-1-cbkb.onrender.com/api/debts/${id}`, {
           method: 'DELETE',
         });
         if (response.ok) {
